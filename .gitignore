@@ -1,1 +1,3 @@
 *.pyc
+real_estate
+db.sqlite3
