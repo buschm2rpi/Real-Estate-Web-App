@@ -5,6 +5,7 @@ class ListingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Listing
         fields = (
+            'id',
             'realtor',
             'title',
             'address',

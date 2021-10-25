@@ -1,8 +1,10 @@
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .choices import price_choices, bedroom_choices, state_choices
+from rest_framework import generics
 
 from .models import Listing
+from .serializers import ListingSerializer
 
 def index(request):
   listings = Listing.objects.order_by('-list_date').filter(is_published=True)
@@ -68,3 +70,7 @@ def search(request):
   }
 
   return render(request, 'listings/search.html', context)
+
+class ListingListCreate(generics.ListCreateAPIView):
+    queryset = Listing.objects.all()
+    serializer_class = ListingSerializer
