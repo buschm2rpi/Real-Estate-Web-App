@@ -3,3 +3,4 @@ real_estate_venv
 db.sqlite3
 .vscode
 media/photos
+frontend/node_modules
